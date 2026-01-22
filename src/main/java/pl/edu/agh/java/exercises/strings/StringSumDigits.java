@@ -16,6 +16,10 @@ package pl.edu.agh.java.exercises.strings;
  */
 public class StringSumDigits {
     public int sumDigits(String str) {
-        throw new UnsupportedOperationException();
+        return str.chars().parallel()
+                .mapToObj(c -> (char) c)
+                .filter(Character::isDigit)
+                .map(c -> Integer.parseInt(String.valueOf(c)))
+                .reduce(0, Integer::sum);
     }
 }

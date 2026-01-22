@@ -11,6 +11,17 @@ package pl.edu.agh.java.exercises.strings;
  */
 public class StringSameEnds {
     public String sameEnds(String string) {
-        throw new UnsupportedOperationException();
+        String start = "";
+        String end = "";
+        String result = "";
+
+        for (int i = 0; i < string.length() / 2; i++) {
+            start += string.charAt(i);
+            end = string.charAt(string.length() - i - 1) + end;
+            if (start.equals(end)) {
+                result = start;
+            }
+        }
+        return result;
     }
 }
